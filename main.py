@@ -72,6 +72,12 @@ def buildAddElementsUi(root, headers):
 	return { 'container': frame, 'entryFieldsMap': textInputs }
 
 def addRecord(textEntryMap, treeView):
+	#hard coded way
+	#addRecordWay1(textEntryMap, treeView)
+	# let's try to do this dynamically
+	addRecordWay2(textEntryMap, treeView)
+
+def addRecordWay1(textEntryMap, treeView):
 	#because we stored the references to the text input fields in our dictionary,
 	#we can use that map and the header name to get that reference, and then use the
 	#widget's 'get' file to grab the file
@@ -93,6 +99,26 @@ def addRecord(textEntryMap, treeView):
 		newRecordSex,
 		newRecordHairColor
 	])
+
+def addRecordWay2(textEntryMap, treeView):
+	newValues = []
+	#items() returns a list of (key, value) tuples
+	for item in textEntryMap.items():
+		#we can print them
+		print(item)
+		#item[1] gets the second value in the tuple, which is the text entry object
+		textEntryWidget = item[1]
+		#get the string from the text entry widget
+		newValues.append(textEntryWidget.get())
+	print(newValues)
+	#add the values to the treeview
+	currentNumberOfRecords = len(treeView.get_children())
+	treeView.insert(
+		parent='',
+		index=currentNumberOfRecords,
+		iid=currentNumberOfRecords,
+		values=newValues
+	)
 
 #entry point for the program
 def main():
