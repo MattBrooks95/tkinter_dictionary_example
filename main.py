@@ -88,7 +88,7 @@ def addRecordWay1(textEntryMap, treeView):
 	#the items in the #{} part will be interpreted as variable names, and that
 	#variable's value will be converted to a string and then inserted into this 
 	#string that we are printing
-	print(f'newRecordName:#{newRecordName} newRecordSex:#{newRecordSex} newRecordHairColor:#{newRecordHairColor}')
+	print(f'newRecordName:{newRecordName} newRecordSex:{newRecordSex} newRecordHairColor:{newRecordHairColor}')
 
 	#I didn't know how to get the current number of rows in the table, so that
 	#I could set the index for the newly created row
